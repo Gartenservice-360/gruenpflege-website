@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grünpflege 360° Gartenservice</title>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      position: relative;
+      background: url('DEIN-BILD-URL-HIER.jpg') no-repeat center center/cover;
+      height: 400px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: -10px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+
+    .header-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+      gap: 1rem;
+    }
+
+    .header-box {
+      background-color: rgba(0, 100, 0, 0.8);
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      min-width: 180px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    nav {
+      background-color: #388e3c;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .services, .prices, .contact, .location {
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+    }
+
+    h2 {
+      color: #2e7d32;
+    }
+
+    .price-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #eee;
+      font-size: 0.9rem;
+    }
+
+    .header-box {
+  background-color: rgba(0, 100, 0, 0.8);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  min-width: 180px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+.header-box:hover {
+  background-color: rgba(0, 120, 0, 0.9);
+}
+.faq ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.faq li {
+  background-color: #e8f5e9;
+  border-left: 5px solid #2e7d32;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.leistungen-hintergrund {
+  background-image: url("Gepflegter Garten mit blühenden Blumen.png");
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px 40px;
+  
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.leistungen-hintergrund::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 1;
+}
+
+.overlay {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.kachel {
+  background-color: #1e4d2b;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.kachel:hover {
+  transform: scale(1.05);
+  background-color: #2e7d32;
+  cursor: pointer;
+}
+
+.hero-title {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+.kachel {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.kachel:nth-child(1) { animation-delay: 0.2s; }
+.kachel:nth-child(2) { animation-delay: 0.4s; }
+.kachel:nth-child(3) { animation-delay: 0.6s; }
+.kachel:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.cta-button {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #1b5e20;
+}
+
+ @media (max-width: 600px) {
+  .overlay {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .leistungen-hintergrund {
+    padding: 40px 15px;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <meta name="robots" content="noindex, nofollow">
+
+
+<a href="#kontakt" class="cta-button">Jetzt Angebot anfragen</a>
+ 
+  <header>
+  <h1 class="hero-title">Grünpflege 360° Gartenservice</h1>
+  </header>
+
+<section class="leistungen-hintergrund" id="leistungen">
+  <div class="overlay">
+    <a href="#leistungen" class="kachel">Leistungen</a>
+    <a href="#preise" class="kachel">Preise</a>
+    <a href="#kontakt" class="kachel">Kontakt</a>
+    <a href="#standort" class="kachel">Standort</a>
+  </div>
+</section>
+
+
+
+
+  <section class="services" id="leistungen">
+    <h2>Meine Leistungen</h2>
+    <ul>
+  <li> Rasen mähen & Trimmen</li>
+  <li> Kanten schneiden</li>
+  <li> Hochdruckreinigung für Terrasse, Wege, Mauern</li>
+  <li> Entsorgung von Rasenschnitt</li>
+</ul>
+
+  </section>
+
+  <section class="prices" id="preise">
+    <h2>Preise</h2>
+    <ul class="price-list">
+      <li>Rasen mähen (bis 100 m²): ab 20 €</li>
+      <li>Rasen mähen (über 100 m²): ab 30 €</li>
+      <li>Kanten trimmen: inklusive</li>
+      <li>Hochdruckreinigung (Terrasse o. Fläche bis 15 m²): ab 25 €</li>
+      <li>Hochdruckreinigung (größere Flächen): auf Anfrage</li>
+    </ul>
+    <p>Alle Preise sind Richtwerte. Gerne machr ich ein persönliches Angebot!</p>
+  </section>
+
+ <section class="contact" id="kontakt">
+  <h2>Kontakt</h2>
+  <form action="https://formspree.io/f/mqaqvzby" method="POST">
+    <label for="name">Name*</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">E-Mail*</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Nachricht*</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Absenden</button>
+  </form>
+
+  <p><strong>Erreichbar:</strong> Montag–Freitag 08:00–18:00 Uhr, Samstag 09:00–14:00 Uhr</p>
+  <p><strong>Antwortzeit:</strong> In der Regel innerhalb von 24 Stunden – oft noch am selben Tag!</p>
+</section>
+
+<section id="datenschutz" style="max-width: 900px; margin: auto; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+  <h2>Datenschutzerklärung</h2>
+  <p>
+    Mit dem Absenden des Kontaktformulars erklärst du dich damit einverstanden, dass deine angegebenen Daten (Name, E-Mail, Nachricht) zum Zweck der Kontaktaufnahme gespeichert und verarbeitet werden. Die Daten werden nicht an Dritte weitergegeben und nach Bearbeitung gelöscht.
+  </p>
+</section>
+
+
+
+  <section class="location" id="standort">
+    <h2>Wo Sie mich finden</h2>
+    <p>Ich biete meinen Service in der Bismarckstraße 6 in 79336 Herbolzheim an.</p>
+    <p>Telefon: 0123 4567890</p>
+    <p>E-Mail: gartenservice360@gmail.com</p>
+    <p><strong>Erreichbar:</strong> Mo–Fr 08:00–18:00 Uhr | Sa 09:00–14:00 Uhr</p>
+
+<section id="standort">
+  <h2>Mein Standort</h2>
+  <p>Ich biete meinen Service in der Bismarckstraße 6 in 79336 Herbolzheim an.</p>
+  <iframe 
+    src="https://www.google.com/maps?q=Bismarckstraße+6,+79336+Herbolzheim&output=embed"
+    width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
+  </iframe>
+</section>
+
+  </section>
+
+  <section class="faq" id="faq">
+  <h2>Häufige Fragen</h2>
+  <ul>
+    <li><strong>Bringst du eigenes Werkzeug mit?</strong><br>Ja, ich bringe alle nötigen Geräte mit – vom Rasenmäher bis zum Hochdruckreiniger.</li>
+    <li><strong>Machst du auch Unkraut entfernen, Laub kehren oder Hecken schneiden?</strong><br>Ja, auf Wunsch übernehme ich auch diese Aufgaben gern.</li>
+    <li><strong>Gibt es Rabatte bei regelmäßigem Service?</strong><br>Ja – wer regelmäßig bucht, bekommt Sonderpreise. Einfach anfragen!</li>
+    <li><strong>Wie schnell kannst du kommen?</strong><br>Meistens innerhalb weniger Tage – bei dringenden Fällen oft auch kurzfristig.</li>
+  </ul>
+</section>
+
+<section id="bewertungen">
+  <h2>Was Kunden sagen</h2>
+  <blockquote>
+    „Schnell, sauber, zuverlässig – mein Garten sah nie besser aus!“<br>
+    <cite>– Herr M., Herbolzheim</cite>
+  </blockquote>
+  <blockquote>
+    „Super Service, top Preis-Leistung. Immer wieder gern!“<br>
+    <cite>– Frau L., Kenzingen</cite>
+  </blockquote>
+</section>
+
+<script>
+  const password = prompt("Passwort eingeben :");
+  if (password !== "Rasen") {
+    document.body.innerHTML = "<h1>Zugriff verweigert</h1>";
+  }
+</script>
+
+
+  <footer>
+  © 2025 Grünpflege 360° Gartenservice | <a href="#datenschutz" style="color: #2e7d32;">Datenschutz</a>
+</footer>
+
+
+</body>
+</html>
